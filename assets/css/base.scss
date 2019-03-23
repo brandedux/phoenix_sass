@@ -1,0 +1,14 @@
+$red: #f00;
+$sass-text: 'SASS Enabled';
+
+.red {
+  color: $red;
+}
+
+.text {
+  content: none;
+
+  &::after {
+    content: $sass-text;
+  }
+}
