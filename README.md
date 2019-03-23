@@ -16,7 +16,7 @@ Start your Phoenix app with:<br />
 You can also run your app inside IEx (Interactive Elixir) as:<br />
   `$ iex -S mix phx.server`
 
-### Start Up the app
+#### Start Up the app
   `$ mix deps.get`
   
   `$ mix deps.compile`
@@ -44,12 +44,12 @@ Modify webpack.config.js to accept .css or .scss extension and add `sass-loader`
     ]
   }
 ```
-### Install `node-sass` and `sass-loader`.
+#### Install `node-sass` and `sass-loader`.
 `$ cd assets`
 
 `$ npm install --save-dev node-sass sass-loader`
 
-### Rename app.css to app.scss and change the path in app.js to reflect the updated file name.
+#### Rename app.css to app.scss and change the path in app.js to reflect the updated file name.
 `import css from "../css/app.scss"`
 
 At this point you can import scss files to the app.scss file.
