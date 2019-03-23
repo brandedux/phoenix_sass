@@ -25,7 +25,7 @@ You can also run your app inside IEx (Interactive Elixir) as:
 ## Setup SASS with Webpack
 Modify webpack.config.js to accept .css or .scss extension and add `sass-loader` to dependencies.
 
-```module: {
+`module: {
     rules: [
       {
         test: /\.js$/,
@@ -39,7 +39,7 @@ Modify webpack.config.js to accept .css or .scss extension and add `sass-loader`
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       }
     ]
-  }```
+  }`
 
 ### Install `node-sass` and `sass-loader`.
 `$ cd assets`
