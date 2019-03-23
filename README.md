@@ -1,31 +1,34 @@
 # Phoenix + Sass
 
 ## Phoenix / Elixir
-Create a new Phoenix app named `test`
-    `$ mix phx.new test`
+Create a new Phoenix app named "phoenix_sass"<br />
+  `$ mix phx.new phoenix_sass`
 
-We are almost there! The following steps are missing:
-    `$ cd test`
+We are almost there! The following steps are missing:<br />
+  `$ cd phoenix_sass`
 
-Then configure your database in config/dev.exs and run:
-    `$ mix ecto.create`
+Then configure your database in config/dev.exs and run:<br />
+  `$ mix ecto.create`
 
-Start your Phoenix app with:
-    `$ mix phx.server`
+Start your Phoenix app with:<br />
+  `$ mix phx.server`
 
-You can also run your app inside IEx (Interactive Elixir) as:
-    `$ iex -S mix phx.server`
+You can also run your app inside IEx (Interactive Elixir) as:<br />
+  `$ iex -S mix phx.server`
 
 ### Start Up the app
-    `$ mix deps.get`
-    `$ mix deps.compile`
-    `$ cd assets && npm install && node node_modules/webpack/bin/webpack.js --mode development`
-    `$ mix phx.server`
+  `$ mix deps.get`
+  
+  `$ mix deps.compile`
+  
+  `$ cd assets && npm install && node node_modules/webpack/bin/webpack.js --mode development`
+  
+  `$ mix phx.server`
 
 ## Setup SASS with Webpack
 Modify webpack.config.js to accept .css or .scss extension and add `sass-loader` to dependencies.
-
-`module: {
+```
+  module: {
     rules: [
       {
         test: /\.js$/,
@@ -39,14 +42,16 @@ Modify webpack.config.js to accept .css or .scss extension and add `sass-loader`
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       }
     ]
-  }`
-
+  }
+```
 ### Install `node-sass` and `sass-loader`.
 `$ cd assets`
+
 `$ npm install --save-dev node-sass sass-loader`
 
 ### Rename app.css to app.scss and change the path in app.js to reflect the updated file name.
 `import css from "../css/app.scss"`
+
 At this point you can import scss files to the app.scss file.
 
 ## Production 
