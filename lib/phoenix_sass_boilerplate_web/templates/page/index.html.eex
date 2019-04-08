@@ -1,6 +1,6 @@
 <section class="phx-hero">
   <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <h3 class="red text"></h3>
+  <h3 class="green text"></h3>
   <p>A productive web framework that<br/>does not compromise speed and maintainability.</p>
 </section>
 
