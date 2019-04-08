@@ -22,7 +22,7 @@ Clone the repo to your local machine<br />
 <hr/>
 
 ## Roll Your Own
-### Phoenix / Elixir
+### Phoenix
 Create a new Phoenix app named "phoenix_sass"<br />
   `$ mix phx.new phoenix_sass`
 

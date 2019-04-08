@@ -1,0 +1,76 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/elixir:1.7-browsers-legacy
+        environment:
+          PHANTOMJS_VERSION: 2.1.1
+          MIX_ENV: test
+      - image: redis:3.2.11
+      - image: circleci/postgres:10.5-alpine-postgis
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD:
+    working_directory: /home/circleci/brandedux
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v1-asdf-cache-{{ checksum ".tool-versions" }}
+      - restore_cache:
+          keys:
+          - v1-dependency-cache-{{ checksum ".tool-versions" }}-{{ .Branch }}-{{ checksum "mix.lock" }}
+          - v1-dependency-cache-{{ checksum ".tool-versions" }}-{{ .Branch }}
+          - v1-dependency-cache-{{ checksum ".tool-versions" }}
+      - restore_cache:
+          keys:
+          - v1-build-cache-{{ checksum ".tool-versions" }}-{{ .Branch }}
+          - v1-build-cache-{{ checksum ".tool-versions" }}
+      - restore_cache:
+          keys:
+          - v1-npm-cache-{{ checksum ".tool-versions" }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          - v1-npm-cache-{{ checksum ".tool-versions" }}-{{ .Branch }}
+          - v1-npm-cache-{{ checksum ".tool-versions" }}
+
+      - run: bin/setup
+
+      - save_cache:
+          key: v1-asdf-cache-{{ checksum ".tool-versions" }}
+          paths: "~/.asdf"
+      - save_cache:
+          key: v1-dependency-cache-{{ checksum ".tool-versions" }}-{{ .Branch }}-{{ checksum "mix.lock" }}
+          paths: "deps"
+      - save_cache:
+          key: v1-dependency-cache-{{ checksum ".tool-versions" }}-{{ .Branch }}
+          paths: "deps"
+      - save_cache:
+          key: v1-dependency-cache-{{ checksum ".tool-versions" }}
+          paths: "deps"
+      - save_cache:
+          key: v1-build-cache-{{ checksum ".tool-versions" }}-{{ .Branch }}
+          paths: "_build"
+      - save_cache:
+          key: v1-build-cache-{{ checksum ".tool-versions" }}
+          paths: "_build"
+      - save_cache:
+          key: v1-npm-cache-{{ checksum ".tool-versions" }}-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths: "node_modules"
+      - save_cache:
+          key: v1-npm-cache-{{ checksum ".tool-versions" }}-{{ .Branch }}
+          paths: "node_modules"
+      - save_cache:
+          key: v1-npm-cache-{{ checksum ".tool-versions" }}
+          paths: "node_modules"
+
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      - run: bin/test_suite
+
+experimental:
+  notify:
+    branches:
+      only:
+        - master
