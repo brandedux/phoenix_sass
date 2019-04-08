@@ -1,6 +1,28 @@
-# Phoenix + Sass
+# Phoenix 1.4 + Sass
+A default installation of Phoenix with SASS Enabled.
 
-## Phoenix / Elixir
+[![Build Status](https://api.travis-ci.org/brandedux/phoenix_sass.svg?branch=master)](https://travis-ci.org/brandedux/phoenix_sass)
+
+## Install Repo
+Clone the repo to your local machine<br />
+  `$ git clone https://github.com/brandedux/phoenix_sass.git`
+
+  `$ cd phoenix_sass`
+
+  `$ mix deps.get`
+
+  `$ mix deps.compile`
+  
+  `$ cd assets && npm install && node node_modules/webpack/bin/webpack.js --mode development`
+  
+  `$ cd ..`
+
+  `$ mix phx.server`
+
+<hr/>
+
+## Roll Your Own
+### Phoenix / Elixir
 Create a new Phoenix app named "phoenix_sass"<br />
   `$ mix phx.new phoenix_sass`
 
@@ -25,7 +47,7 @@ You can also run your app inside IEx (Interactive Elixir) as:<br />
   
   `$ mix phx.server`
 
-## Setup SASS with Webpack
+### Setup SASS with Webpack
 Modify webpack.config.js to accept .css or .scss extension and add `sass-loader` to dependencies.
 ```
   module: {
@@ -44,12 +66,12 @@ Modify webpack.config.js to accept .css or .scss extension and add `sass-loader`
     ]
   }
 ```
-#### Install `node-sass` and `sass-loader`.
+##### Install `node-sass` and `sass-loader`.
 `$ cd assets`
 
 `$ npm install --save-dev node-sass sass-loader`
 
-#### Rename app.css to app.scss and change the path in app.js to reflect the updated file name.
+##### Rename app.css to app.scss and change the path in app.js to reflect the updated file name.
 `import css from "../css/app.scss"`
 
 At this point you can import scss files to the app.scss file.
