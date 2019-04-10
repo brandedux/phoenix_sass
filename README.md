@@ -4,7 +4,7 @@ A default installation of Phoenix with SASS Enabled.
 [![Build Status](https://api.travis-ci.org/brandedux/phoenix_sass.svg?branch=master)](https://travis-ci.org/brandedux/phoenix_sass)
 
 ## Install Repo
-Clone the repo to your local machine<br />
+Clone the repo to your local machine and install it.<br />
   `$ git clone https://github.com/brandedux/phoenix_sass.git`
 
   `$ cd phoenix_sass`
@@ -23,7 +23,7 @@ Clone the repo to your local machine<br />
 
 ## Roll Your Own
 ### Phoenix
-Create a new Phoenix app named "phoenix_sass"<br />
+Create a new Phoenix app named "phoenix_sass".<br />
   `$ mix phx.new phoenix_sass`
 
 We are almost there! The following steps are missing:<br />
@@ -44,6 +44,8 @@ You can also run your app inside IEx (Interactive Elixir) as:<br />
   `$ mix deps.compile`
   
   `$ cd assets && npm install && node node_modules/webpack/bin/webpack.js --mode development`
+  
+  `$ cd ..`
   
   `$ mix phx.server`
 
@@ -77,7 +79,7 @@ Modify webpack.config.js to accept .css or .scss extension and add `sass-loader`
 At this point you can import scss files to the app.scss file.
 
 ## Production 
-Ready to run in production? Please [check our phoenix deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+Ready to run in production? Please [check the phoenix deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
 ## Learn more
 
