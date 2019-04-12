@@ -38,7 +38,7 @@ Start your Phoenix app with:<br />
 You can also run your app inside IEx (Interactive Elixir) as:<br />
   `$ iex -S mix phx.server`
 
-#### Start Up the app
+#### Start Up the App
   `$ mix deps.get`
   
   `$ mix deps.compile`
