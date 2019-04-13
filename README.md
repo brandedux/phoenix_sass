@@ -1,5 +1,5 @@
 # Phoenix 1.4 + Sass
-A default installation of Phoenix with SASS Enabled.
+A default installation of Phoenix with Sass enabled.
 
 [![Build Status](https://api.travis-ci.org/brandedux/phoenix_sass.svg?branch=master)](https://travis-ci.org/brandedux/phoenix_sass)
 
@@ -49,7 +49,7 @@ You can also run your app inside IEx (Interactive Elixir) as:<br />
   
   `$ mix phx.server`
 
-### Setup SASS with Webpack
+### Setup Sass with Webpack
 Modify webpack.config.js to accept .css or .scss extension and add `sass-loader` to dependencies.
 ```
   module: {
