@@ -24,14 +24,6 @@ matrix:
   #    otp_release: 19.3
   #  - elixir: 1.8
   #    otp_release: 20.3
-    - elixir: 1.9
-      otp_release: 18
-    - elixir: 1.9
-      otp_release: 19.3
-    - elixir: 1.9
-      otp_release: 20.3
-    - elixir: 1.9
-      otp_release: 21
 #sudo: false
 #env:
 #  global:
