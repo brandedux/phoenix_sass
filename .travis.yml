@@ -1,9 +1,10 @@
 language: elixir
 elixir:
 # - 1.5
-  - 1.6
-  - 1.7
-  - 1.8
+# - 1.6
+# - 1.7
+# - 1.8
+- 1.9
 otp_release:
   - 18.0
   - 19.3
@@ -23,6 +24,14 @@ matrix:
       otp_release: 19.3
     - elixir: 1.8
       otp_release: 20.3
+    - elixir: 1.9
+      otp_release: 18
+    - elixir: 1.9
+      otp_release: 19.3
+    - elixir: 1.9
+      otp_release: 20.3
+    - elixir: 1.9
+      otp_release: 21
 #sudo: false
 #env:
 #  global:
